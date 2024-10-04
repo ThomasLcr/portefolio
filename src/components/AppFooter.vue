@@ -28,7 +28,7 @@
     {
       title: 'My GitHub',
       icon: 'mdi-github',
-      href: 'https://github.com/T0WAX',
+      href: 'https://github.com/ThomasLcr',
     },
   ]
 </script>
