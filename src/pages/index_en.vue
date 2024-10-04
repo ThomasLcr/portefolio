@@ -1,0 +1,322 @@
+<template>
+    <div id="home">
+      <div class="full-page">
+        <h1 style="font-size: 5rem;">Cybersecurity student</h1>
+      </div>
+    </div>
+    <div id="about" style="text-align: center;min-height: 100vh; margin: 5px;">
+      <div id="anim_left_pres" class="hidden">
+        <v-card class="mx-auto" width="50%" style="background: rgb(30, 40, 55);">
+          <template v-slot:title>
+            <span class="pt-8" style="font-weight: bold;font-size: 35px;">Who am I 🙋‍♂️</span>
+          </template>
+          <v-card-text class="pt-4" style="background: rgba(11, 45, 138, 0.3);font-size: 20px; text-align: left; line-height:50px;">
+            <p>My name is Thomas Lacroix and I'm a final-year engineering student at Télécom Nancy.</p>
+            <p>I like practising a lot of sports such as tennis, running, moutain biking or swimming.</p>
+            <p>During my studies, I had the opportunity to be the communication manager of the association <a style="color:goldenrod; " href="https://www.animest.net/">Anim'Est</a>. 
+               This position enabled me to develop skills in management, teamwork and public speaking.</p>
+            <br></br>
+            <p>I'm interested in everything around computer science.
+               I'm always on the lookout for new projects to take on, enabling me to develop both my IT skills and other areas skills.</p>
+            <p>I'm currently looking for a final-year internship in web application security.</p>
+          </v-card-text>
+        </v-card>
+  
+        <div class ="container-cv">
+          <form method="get" :action="CV">
+            <button type="submit" class="Mybutton" >
+              <span style="font-size: 30px;">My resume</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div id="projects"  class="projets" style="text-align: center;min-height: 100vh; margin: 5px;">
+      <div class ="container">
+        <div class = "section" id="anim_right_p5">
+          <div class="text">
+            <h1>Application de comptabilité et d'analyse financière</h1>
+          </div>
+          <div class="display-image">
+            <div class="image">
+                <img style="width: 6000px;" :src="analyse" alt="Image du projet">
+            </div>
+            <div class="text" >
+              <p>The application, named Etatsfi, is a website for analysing a company's financial data.
+                A company can file several accounting documents called <strong>FEC</strong> (Fichier des Écritures Comptables) 
+                and the application will generate accounting documents such as the balance sheet and the tax return for each of the FECs filed. 
+                The application can also perform financial analysis calculations to determine a company's profitability, solvency and profitability.
+                Technologies used : <strong>Python</strong>, <strong>Vue.js</strong>, <strong>PHP</strong>, <strong>PostgreSQL</strong>.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class ="container">
+        <div class = "section" id="anim_left_p4">
+          <div class="text">
+            <h1>Music culture game</h1>
+            <div class="display-image">
+              <div class="image">
+                  <img style="height: 300px;" :src="SpotTheSong" alt="Exemple de code Ada du projet">
+              </div>
+            </div>
+            <p>Spot The Song is a music culture game that lets you test your musical knowledge. 
+              The game is powered by the Spotify API, so users need to log in to their Spotify account to play. 
+              They can then choose a playlist corresponding to a musical genre, from which they will have to find the title of the song. 
+              To find the song title, the user suggests a song of their choice. 
+              Based on the guess, the game gives them hints about the song to be found (whether the song suggested is older or more recent than the song to be found, whether the song is on the same album, by the same artist, etc.)
+              Technologies used : <strong>Python</strong>, <strong>Flask</strong>, <strong>Spotify API</strong>.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class ="container">
+        <div class = "section" id="anim_right_p3">
+          <div class="text">
+              <h1>Ada language compiler</h1>
+              <p>The aim of this project is to create a compiler from scratch for a simplified version of the Ada language <strong>canAda</strong>. 
+                The compiler is written in <strong>Java</strong> and uses the <strong>JavaFX</strong> library to display the abstract tree. 
+                Firstly, the Lexer.java file will perform the lexical analysis of the canAda source code. 
+                Next, the Parser.java file will perform the syntactic analysis based on the tokens generated by the lexer. 
+                To make parsing easier, the grammar of the canAda language has been modified to be almost LL(1). 
+                The <strong>abstract tree</strong> for the program is constructed from the rules in the grammar used.
+              </p>
+              <br></br>
+              <p>
+                The second part of the project involves generating <strong>x86_64</strong> assembly code from the abstract tree.
+                Each assembly code pattern is represented by a function specific to it (a function for arithmetic operations, one for if, etc...). 
+                Once the abstract tree has been browsed, the generated code is automatically assembled with the linux nasm command to obtain an executable.
+              </p>
+          </div>
+          <div class="display-image">
+              <div class="image">
+                  <img style="height: 300px;" :src="compile_prog" alt="Exemple de code Ada du projet">
+              </div>
+              <div class="image">
+                  <img style="height: 300px;" :src="compile_arbre" alt="Arbre abstrait du projet">
+              </div>
+          </div>
+        </div>
+      </div>
+      <div class ="container">
+        <div class = "section" id="anim_left_p2">
+            <div class="display-image">
+                <div class="text" style="width: 60%;">
+                    <h1>Online circular economy application</h1>
+                    <p>This application connects people who want to <strong>lend/borrow equipment</strong> and/or <strong>offer/receive services</strong> as part of a circular economy approach. 
+                      Each user can create an account and propose objects or services. 
+                      They can also consult the objects and services offered by other users and then, if they wish, make a request for a loan or service. 
+                      Technologies used : <strong>JavaFX</strong> et <strong>FXML</strong>.
+                    </p>
+                </div>
+                <div class="image">
+                    <img :src="javaFX" alt="Image du projet">
+                </div>
+            </div>
+        </div>
+      </div>
+      <div class ="container">
+        <div class = "section" id="anim_right_p1">
+            <div class="display-image">
+                <div class="text">
+                    <h1>Wordle application and automatic solver</h1>
+                    <p>The application lets you play <strong>WORDLE</strong> from a web browser. It is possible to play without logging in. 
+                            If the player is logged in, he can access advanced features such as viewing statistics as well as history and achievements. 
+                            It is also possible to modify game mode settings (word size, number of tries). 
+                            The application also features a survival mode and a time trial mode.
+                            Technologies used : <strong>Python</strong>, <strong>Flask</strong>, <strong>MySQL</strong> et <strong>HTML/CSS</strong>.
+                    </p>
+                </div>
+                <div class="image">
+                    <img :src="wordle_site" alt="Image du projet">
+                </div>
+            </div>
+            <div class="display-image">
+                <div class="image">
+                    <img style="min-width: 300px;" :src="wordle_solveur" alt="Image du projet">
+                </div>
+                <div class="textbis">
+                  <p>The solver works on the principle of <strong>information theory</strong>: it will propose the word that, on average, will eliminate the most words, 
+                            i.e. the one that gives us the most information. To do this, it studies the probability of each pattern falling for each word. 
+                            A pattern is a combination of colors, or in computer terms of 0-1-2, used to check certain rules, defined by the game, on the words in our list.</p>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+    <div id="contact">
+      <div id="anim_left_form" class="hidden; form">
+        <div class="global-contact">
+          <h1>Contact me</h1>
+          <p>If you want to contact me, you can do it by filling this form</p>
+          <v-form v-model="valid" ref="contactForm" @submit.prevent="submitForm">
+            <v-text-field
+              v-model="name"
+              label="Name"
+              :rules="[rules.required]"
+              required
+              name="nom"
+            ></v-text-field>
+  
+            <v-text-field
+              v-model="email"
+              label="E-mail"
+              :rules="[rules.required, rules.email]"
+              required
+              name="email"
+            ></v-text-field>
+  
+            <v-textarea
+              v-model="message"
+              label="Request"
+              :rules="[rules.required]"
+              required
+              name="message"
+            ></v-textarea>
+  
+            <button :disabled="!valid"
+              @click="submitForm"
+              @click.prevent="submitForm" 
+              type="button" 
+              class="Mybutton"
+            >
+              <span>Send my request</span>
+          </button>
+          </v-form>
+          <div v-if="messageSent" class="confirmation-message">
+          <p>Thank you for your message! I'll get back to you as soon as possible.</p>
+        </div>
+        </div>
+      </div>
+    </div>
+  </template>
+  
+  
+  <script setup>
+  import { ref } from 'vue';
+  import axios from 'axios';
+  import { onMounted } from 'vue';
+  
+  onMounted(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          if (entry.target.id.includes("left")){
+            entry.target.classList.add('slide-in-left');
+          } else {
+            entry.target.classList.add('slide-in-right');
+          }
+          entry.target.classList.remove('hidden');
+        }
+      });
+    });
+  
+    const presTarget = document.getElementById('anim_left_pres');
+    const p1Target = document.getElementById('anim_right_p1');
+    const p2Target = document.getElementById('anim_left_p2');
+    const p3Target = document.getElementById('anim_right_p3');
+    const p4Target = document.getElementById('anim_left_p4');
+    const p5Target = document.getElementById('anim_right_p5');
+    const formTarget = document.getElementById('anim_left_form');
+  
+    observer.observe(presTarget);
+    observer.observe(p1Target); 
+    observer.observe(p2Target);
+    observer.observe(p3Target);
+    observer.observe(p4Target);
+    observer.observe(p5Target);
+    observer.observe(formTarget);
+  });
+  
+  const name = ref('');
+  const email = ref('');
+  const message = ref('');
+  const valid = ref(false);
+  const messageSent = ref(false);  // Variable pour le message de confirmation
+  const rules = {
+    required: value => !!value || 'Champ requis',
+    email: value => /.+@.+\..+/.test(value) || 'E-mail invalide',
+  };
+  
+  const submitForm = () => {
+    if (valid.value) {
+      const formData = new FormData();
+      formData.append('nom', name.value);
+      formData.append('email', email.value);
+      formData.append('message', message.value);
+  
+      axios
+        .post('https://thomas-lacroix-tn.fr/back/contactform.php', formData, { timeout: 5000 })
+        .then(response => {
+          console.log('Message envoyé', response);
+          console.log('Message envoyé', response);
+          // Réinitialiser le formulaire
+          name.value = '';
+          email.value = '';
+          message.value = '';
+          valid.value = false;
+          messageSent.value = true;
+        })
+        .catch(error => {
+          console.error('Erreur lors de l\'envoi du message', error);
+        });
+    }
+  };
+  </script>
+  <script>
+  import python from "../assets/python.png";
+
+
+  import CV from "../assets/CV_FR.pdf";
+  import analyse from "../assets/etatsfi_analyse.png";
+  import SpotTheSong from "../assets/SpotTheSong.png";
+  import compile_arbre from "../assets/compile_arbre.png";
+  import compile_prog from "../assets/compile_prog.png";
+  import javaFX from "../assets/javafx.png";
+  import wordle_site from "../assets/wordle_site.jpg";
+  import wordle_solveur from "../assets/wordle_solveur.jpg";
+  
+  export default {
+    data() {
+      return {
+        name: '',
+        email: '',
+        message: '',
+        valid: false,
+        rules: {
+          required: value => !!value || 'Champ requis',
+          email: value => /.+@.+\..+/.test(value) || 'E-mail invalide',
+        },
+      };
+    },
+    methods: {
+      submitForm() {
+        if (this.$refs.contactForm.validate()) {
+          // Logique de soumission, ex : envoyer via API
+          console.log({
+            name: this.name,
+            email: this.email,
+            message: this.message,
+          });
+        }
+      },
+      updateFieldStyles() {
+        const overlays = document.querySelectorAll('.v-field--variant-filled .v-field__overlay');
+        overlays.forEach(overlay => {
+          overlay.style.backgroundColor = 'rgba(200, 200, 200, 0.3)';
+        });
+      }
+    },
+    mounted() {
+      this.updateFieldStyles(); 
+    },
+  };
+</script>
+  
+<style>
+
+</style>
+  
+  
+  

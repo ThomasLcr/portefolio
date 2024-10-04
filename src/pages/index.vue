@@ -11,13 +11,16 @@
           <span class="pt-8" style="font-weight: bold;font-size: 35px;">Présentation 🙋‍♂️</span>
         </template>
         <v-card-text class="pt-4" style="background: rgba(11, 45, 138, 0.3);font-size: 20px; text-align: left; line-height:50px;">
-          <p>Je m'appelle Lacroix Thomas et je suis étudiant en 2ème année d'école d'ingénieur à Télécom Nancy.</p>
-          <p>Je suis quelqu'un qui adore faire du sport, entre autre, du tennis, de la course à pieds, du vélo ou encore de la natation.</p>
-          <p>Je suis responsable communication de l'association <a style="color:goldenrod;" href="https://www.animest.net/">Anim'Est</a>. 
-            Ce poste m'a notamment permis de développer des compétences de travail en équipe et d'expression en public.</p>
-          <br />
-          <p>Je suis passionné par tout ce qui touche à l'informatique, et je suis toujours à la recherche de nouveaux projets à réaliser.</p>
-          <p>Je suis à la recherche d'un stage assistant ingénieur informatique dans le cadre de mon cursus.</p>
+          <p>Je m'appelle Lacroix Thomas et je suis étudiant en dernière année d'école d'ingénieur à Télécom Nancy.</p>
+          <p>Je suis quelqu'un qui adore faire du sport, notamment du tennis, de la course à pied, du vélo et de la natation.</p> 
+          <p>Pendant mes études, j'ai eu l'occasion d'être responsable de la communication de l'association 
+            <a style="color:goldenrod;" href="https://www.animest.net/">Anim'Est</a>. 
+            Ce poste m'a permis de développer des compétences en management, en travail d'équipe ainsi qu'en expression publique.</p> 
+          <br></br>
+          <p>Je suis passionné par tout ce qui touche à l'informatique. 
+            Je suis toujours à la recherche de nouveaux projets à réaliser, me permettant de développer à la fois mes connaissances en informatique 
+            ainsi que dans d'autres domaines.</p> 
+          <p>Je suis actuellement à la recherche d'un stage de fin d'études portant sur la sécurité des applications web.</p>
         </v-card-text>
       </v-card>
 
@@ -32,6 +35,46 @@
   </div>
   <div id="projects"  class="projets" style="text-align: center;min-height: 100vh; margin: 5px;">
     <div class ="container">
+      <div class = "section" id="anim_right_p5">
+        <div class="text">
+          <h1>Application de comptabilité et d'analyse financière</h1>
+        </div>
+        <div class="display-image">
+          <div class="image">
+              <img style="width: 6000px;" :src="analyse" alt="Image du projet">
+          </div>
+          <div class="text" >
+            <p >L'application qui se nomme Etatsfi est un site internet permettant d'analyser les données financières d'une entreprise.
+              Une entreprise peut déposer plusieurs documents comptables appelés <strong>FEC</strong> (Fichier des Écritures Comptables)
+              et l'application va générer des documents comptables tel que la balance et la liasse fiscale pour chacun des FECs déposés.
+              L'application peut également faire des calculs d'analyse financier pour connaitre la profitabilité, la solvabilité et 
+              la rentabilité de l'entreprise.
+              Technologies utilisées : <strong>Python</strong>, <strong>Vue.js</strong>, <strong>PHP</strong>, <strong>PostgreSQL</strong>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class ="container">
+      <div class = "section" id="anim_left_p4">
+        <div class="text">
+          <h1>Jeu de culture musicale</h1>
+          <div class="display-image">
+            <div class="image">
+                <img style="height: 300px;" :src="SpotTheSong" alt="Exemple de code Ada du projet">
+            </div>
+          </div>
+          <p>Spot The Song est un jeu de culture musicale qui permet de tester ses connaissances musicales. Le jeu fonctionne grâce à l'<strong>API Spotify</strong>. 
+            L'utilisateur doit se connecter à son compte Spotify pour pouvoir jouer. 
+            Il peut alors choisir une playlist correspondant à un genre musical, dans laquelle il devra trouver le titre de la chanson.
+            Pour trouver le titre de la chanson, l'utilisateur propose une chanson de son choix. 
+            À partir de sa proposition, le jeu lui donne des indications sur la chanson à trouver (si la chanson proposée est plus ancienne ou plus récente que la chanson à trouver, si la chanson est dans le même album, par le même artiste, etc.).
+            Technologies utilisées : <strong>Python</strong>, <strong>Flask</strong>, <strong>Spotify API</strong>.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class ="container">
       <div class = "section" id="anim_right_p3">
         <div class="text">
             <h1>Compilateur de langage Ada</h1>
@@ -40,6 +83,12 @@
                 Dans un premier temps, le fichier Lexer.java va réaliser <strong>l'analyse lexicale</strong> du code source canAda. Ensuite, le fichier Parser.java va réaliser 
                 <strong>l'analyse syntaxique</strong> à partir des tokens générés par le lexer. Pour faciliter le parsing, la grammaire du langage canAda a été modifée pour être
                 presque LL(1). A partir des règles de la grammaire utilisée, <strong>l'arbre abstrait</strong> relatif au programme est construit.                    
+            </p>
+            <br></br>
+            <p>
+              La seconde partie du projet consiste à générer du code assembleur <strong>x86_64</strong> à partir de l'arbre abstrait.
+              Chaque schéma de code assembleur est représenté par une fonction qui lui est spécifique (une fonction pour les opérations arithmétique, une pour le if, etc...). 
+              Une fois le parcours de l’arbre abstrait terminé, le code généré est automatiquement assemblé avec la commande linux nasm pour obtenir un exécutable.
             </p>
         </div>
         <div class="display-image">
@@ -54,9 +103,11 @@
     </div>
     <div class ="container">
       <div class = "section" id="anim_left_p2">
+          <div class="text">
+            <h1>Application d’économie circulaire en ligne</h1>
+          </div>
           <div class="display-image">
               <div class="text" style="width: 60%;">
-                  <h1>Application d’économie circulaire en ligne</h1>
                   <p>Cette application permet de mettre en relation des personnes souhaitant <strong>prêter/emprunter du matériel</strong>
                       et/ou de <strong>proposer/recevoir des services</strong> dans une démarche d’économie circulaire. Chaque utilisateur peut 
                       créer un compte et proposer des objets ou des services. Il peut également consulter les objets et services proposés par les 
@@ -72,32 +123,32 @@
     </div>
     <div class ="container">
       <div class = "section" id="anim_right_p1">
-          <div class="display-image">
-              <div class="text">
-                  <h1>Application de type wordle et solveur automatique</h1>
-                  <p>L’application permet de jouer à <strong>WORDLE</strong>  depuis un navigateur web. Il est possible de jouer sans se connecter.
-                      Si le joueur est connecté, il peut accéder à des fonctionnalités avancées comme visionner ses statistiques ainsi que son historique et 
-                      ses succès accomplis. Il est également possible de modifier les paramètres du mode jeu (taille du mot à trouver, nombre d'essais).
-                      Un mode de jeu survie ainsi qu'un mode contre la montre sont également implémentés dans l'application.
-                      Technologies utilisées : <strong>Python</strong>, <strong>Flask</strong>, <strong>MySQL</strong> et <strong>HTML/CSS</strong>.
-                  </p>
-              </div>
-              <div class="image">
-                  <img :src="wordle_site" alt="Image du projet">
-              </div>
-          </div>
-          <div class="display-image">
-              <div class="image">
-                  <img style="min-width: 300px;" :src="wordle_solveur" alt="Image du projet">
-              </div>
-              <div class="textbis">
-                  <p>Le solveur fonctionne sur le principe de la <strong>théorie de l'information</strong>  : il va proposer le mot qui en moyenne va éliminer le plus de mots,
-                      c’est à dire celui qui nous rapporte le plus d’information. Pour cela, il va étudier, pour chaque mot, la probabilité que chaque pattern tombe.
-                      Un pattern est une combinaison de couleurs, ou informatiquement de 0-1-2, permettant de vérifier certaines règles, définies par le jeu, sur les mots de notre liste.
-                      Le solveur a entièrement été réalisé en <strong>C</strong> pour des raisons de performance.
-                  </p>
-              </div>
-          </div>
+        <div class="display-image">
+            <div class="text">
+                <h1>Application de type wordle et solveur automatique</h1>
+                <p>L’application permet de jouer à <strong>WORDLE</strong>  depuis un navigateur web. Il est possible de jouer sans se connecter.
+                    Si le joueur est connecté, il peut accéder à des fonctionnalités avancées comme visionner ses statistiques ainsi que son historique et 
+                    ses succès accomplis. Il est également possible de modifier les paramètres du mode jeu (taille du mot à trouver, nombre d'essais).
+                    Un mode de jeu survie ainsi qu'un mode contre la montre sont également implémentés dans l'application.
+                    Technologies utilisées : <strong>Python</strong>, <strong>Flask</strong>, <strong>MySQL</strong> et <strong>HTML/CSS</strong>.
+                </p>
+            </div>
+            <div class="image">
+                <img :src="wordle_site" alt="Image du projet">
+            </div>
+        </div>
+        <div class="display-image">
+            <div class="image">
+                <img style="min-width: 300px;" :src="wordle_solveur" alt="Image du projet">
+            </div>
+            <div class="textbis">
+                <p>Le solveur fonctionne sur le principe de la <strong>théorie de l'information</strong>  : il va proposer le mot qui en moyenne va éliminer le plus de mots,
+                    c’est à dire celui qui nous rapporte le plus d’information. Pour cela, il va étudier, pour chaque mot, la probabilité que chaque pattern tombe.
+                    Un pattern est une combinaison de couleurs, ou informatiquement de 0-1-2, permettant de vérifier certaines règles, définies par le jeu, sur les mots de notre liste.
+                    Le solveur a entièrement été réalisé en <strong>C</strong> pour des raisons de performance.
+                </p>
+            </div>
+        </div>
       </div>
     </div>
   </div>
@@ -106,7 +157,7 @@
       <div class="global-contact">
         <h1>Contactez moi</h1>
         <p>Si vous souhaitez me contacter, vous pouvez le faire via ce formulaire</p>
-        <v-form v-model="valid" ref="contactForm">
+        <v-form v-model="valid" ref="contactForm" @submit.prevent="submitForm">
           <v-text-field
             v-model="name"
             label="Nom"
@@ -133,11 +184,16 @@
 
           <button :disabled="!valid"
             @click="submitForm"
+            @click.prevent="submitForm" 
+            type="button" 
             class="Mybutton"
           >
             <span>Envoyer mon message</span>
         </button>
         </v-form>
+        <div v-if="messageSent" class="confirmation-message">
+          <p>Merci pour votre message ! Je vous répondrai dans les plus brefs délais.</p>
+        </div>
       </div>
     </div>
   </div>
@@ -167,12 +223,16 @@ onMounted(() => {
   const p1Target = document.getElementById('anim_right_p1');
   const p2Target = document.getElementById('anim_left_p2');
   const p3Target = document.getElementById('anim_right_p3');
+  const p4Target = document.getElementById('anim_left_p4');
+  const p5Target = document.getElementById('anim_right_p5');
   const formTarget = document.getElementById('anim_left_form');
 
   observer.observe(presTarget);
   observer.observe(p1Target); 
   observer.observe(p2Target);
   observer.observe(p3Target);
+  observer.observe(p4Target);
+  observer.observe(p5Target);
   observer.observe(formTarget);
 });
 
@@ -180,6 +240,7 @@ const name = ref('');
 const email = ref('');
 const message = ref('');
 const valid = ref(false);
+const messageSent = ref(false);  // Variable pour le message de confirmation
 const rules = {
   required: value => !!value || 'Champ requis',
   email: value => /.+@.+\..+/.test(value) || 'E-mail invalide',
@@ -193,19 +254,29 @@ const submitForm = () => {
     formData.append('message', message.value);
 
     axios
-      .post('https://thomas-lacroix-tn.fr/back/contactform.php', formData)
-      .then(response => {
-        console.log('Message envoyé', response);
-        // Rediriger vers une page de succès ou afficher un message de confirmation
-      })
-      .catch(error => {
-        console.error('Erreur lors de l\'envoi du message', error);
-      });
-  }
+      .post('https://thomas-lacroix-tn.fr/back/contactform.php', formData, { timeout: 5000 })  // 5 secondes de timeout
+    .then(response => {
+      console.log('Message envoyé', response);
+      // Réinitialiser le formulaire
+      name.value = '';
+      email.value = '';
+      message.value = '';
+      valid.value = false;
+      messageSent.value = true;
+    })
+    .catch(error => {
+      console.error('Erreur lors de l\'envoi du message', error);
+    });
+  } 
 };
 </script>
 <script>
+import python from "../assets/python.png";
+
+
 import CV from "../assets/CV_FR.pdf";
+import analyse from "../assets/etatsfi_analyse.png";
+import SpotTheSong from "../assets/SpotTheSong.png";
 import compile_arbre from "../assets/compile_arbre.png";
 import compile_prog from "../assets/compile_prog.png";
 import javaFX from "../assets/javafx.png";
@@ -244,12 +315,12 @@ export default {
     }
   },
   mounted() {
-    this.updateFieldStyles(); // Call to update styles
+    this.updateFieldStyles(); // Pour mettre à jour les styles de vuetify
   },
 };
 </script>
 
-<style scoped>
+<style>
 .container-cv{
   display: flex;
   justify-content: center;
@@ -327,6 +398,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+  gap:2%;
   margin-bottom: 5%;
 }
 
@@ -416,6 +488,11 @@ img {
   cursor: pointer;
   transition: 0.3s;
   margin: 5px;
+}
+
+.confirmation-message {
+  color: green;
+  margin-top: 20px;
 }
 </style>
 

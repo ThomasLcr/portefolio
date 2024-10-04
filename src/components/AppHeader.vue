@@ -1,19 +1,20 @@
 <template>
-  <v-app-bar :elevation="2" style="position: fixed; background: #192636; opacity:0.9;" class="px-12">
+  <v-app-bar :elevation="2" style="position: fixed; background: #192636; opacity:0.9;" class="px-12" id="2">
     <v-btn style="font-size: 20px;" @click="scroll('home')">
       <img :src="logo" alt="Logo" class="mr-2" style="height: 24px;" />
-      LACROIX THOMAS
+      {{ buttonTexts.nom }}
     </v-btn>
     <v-spacer></v-spacer>
+
     <!-- Long menu for large screens -->
-    <v-btn class="long_menu" text @click="scroll('home')"> Accueil </v-btn>
-    <v-btn class="long_menu" text @click="scroll('about')"> À propos </v-btn>
-    <v-btn class="long_menu" text @click="scroll('projects')"> Projets </v-btn>
-    <v-btn class="long_menu" text @click="scroll('contact')"> Contact </v-btn>
-    <v-btn class="long_menu" @click="scroll('home')">
+    <v-btn class="long_menu" text @click="scroll('home')">{{ buttonTexts.home }}</v-btn>
+    <v-btn class="long_menu" text @click="scroll('about')">{{ buttonTexts.about }}</v-btn>
+    <v-btn class="long_menu" text @click="scroll('projects')">{{ buttonTexts.projects }}</v-btn>
+    <v-btn class="long_menu" text @click="scroll('contact')">{{ buttonTexts.contact }}</v-btn>
+    <v-btn class="long_menu" aria-label="Changer en français" @click="changeLanguage('fr')">
       <img :src="drapeau_fr" alt="france" class="mr-2" style="width: 60%;" />
     </v-btn>
-    <v-btn class="long_menu">
+    <v-btn class="long_menu" aria-label="Changer en anglais" @click="changeLanguage('en')">
       <img :src="drapeau_en" alt="english" class="mr-2" style="width: 60%;" />
     </v-btn>
 
@@ -22,23 +23,20 @@
   </v-app-bar>
 
   <!-- Short menu for small screens -->
-  <div v-if="isMenuOpen" class="short-menu-items">
-    <v-btn
-  x-large
->oui</v-btn>
-    <v-btn depressed large outlined plain raised text @click="scroll('home')"> Accueil </v-btn>
-    <v-btn text @click="scroll('about')"> À propos </v-btn>
-    <v-btn text @click="scroll('projects')"> Projets </v-btn>
-    <v-btn text @click="scroll('contact')"> Contact </v-btn>
-    <v-btn @click="scroll('home')">
+  <v-overlay v-if="isMenuOpen" absolute opacity="0.5" color="black" @click="toggleMenu"></v-overlay>
+  <div v-if="isMenuOpen" class="short-menu-items" id="1">
+    <v-btn :class="{ 'overlay-active': isMenuOpen }" text @click="scrollAndClose('home')">{{ buttonTexts.home }}</v-btn>
+    <v-btn :class="{ 'overlay-active': isMenuOpen }" text @click="scrollAndClose('about')">{{ buttonTexts.about }}</v-btn>
+    <v-btn :class="{ 'overlay-active': isMenuOpen }" text @click="scrollAndClose('projects')">{{ buttonTexts.projects }}</v-btn>
+    <v-btn :class="{ 'overlay-active': isMenuOpen }" text @click="scrollAndClose('contact')">{{ buttonTexts.contact }}</v-btn>
+    <v-btn :class="{ 'overlay-active': isMenuOpen }" aria-label="Changer en français" @click="changeLanguage('fr')">
       <img :src="drapeau_fr" alt="france" class="mr-2" style="width: 60%;" />
     </v-btn>
-    <v-btn>
+    <v-btn :class="{ 'overlay-active': isMenuOpen }" aria-label="Changer en anglais" @click="changeLanguage('en')">
       <img :src="drapeau_en" alt="english" class="mr-2" style="width: 60%;" />
     </v-btn>
   </div>
 </template>
-
 
 <script>
 import logo from "../assets/logo_site.ico";
@@ -53,17 +51,72 @@ export default {
       drapeau_en,
       isScrolled: false,
       isMenuOpen: false, // Add state to track menu visibility
+      buttonTexts: {
+        nom : 'Lacroix Thomas',
+        home: 'Accueil',
+        about: 'À propos',
+        projects: 'Projets',
+        contact: 'Contact',
+      },
     };
   },
+  computed: {
+    isEnglish() {
+      return this.$route.path.startsWith('/en');  // Vérifie si l'URL commence par /en
+    },
+  },
+  watch: {
+    isEnglish: {
+      immediate: true,
+      handler(newVal) {
+        this.updateButtonTexts(newVal);
+      },
+    },
+  },
   methods: {
+    updateButtonTexts(isEnglish) {
+      if (isEnglish) {
+        this.buttonTexts = {
+          nom : 'Thomas Lacroix',
+          home: 'Home',
+          about: 'About',
+          projects: 'Projects',
+          contact: 'Contact',
+        };
+      } else {
+        this.buttonTexts = {
+          nom : 'Lacroix Thomas',
+          home: 'Accueil',
+          about: 'À propos',
+          projects: 'Projets',
+          contact: 'Contact',
+        };
+      }
+    },
     scroll(refName) {
       const element = document.getElementById(refName);
       if (element) {
         element.scrollIntoView({ behavior: "smooth" });
       }
     },
-    handleScroll() {
-      this.isScrolled = window.scrollY > 50;
+    toggleMenu() {
+      this.isMenuOpen = !this.isMenuOpen; // Toggle the visibility of the menu
+    },
+    scrollAndClose(refName) {
+      this.scroll(refName);  // Scroll to the section
+      this.toggleMenu();     // Close the menu after clicking
+    },
+    changeLanguage(lang) {
+      const currentRoute = this.$route.name;  // Obtenir le nom de la route actuelle
+      let newRoute;
+
+      if (lang === 'en') {
+        newRoute = currentRoute === 'home' ? 'home_en' : currentRoute + '_en';
+      } else {
+        newRoute = currentRoute.replace('_en', ''); // Retirer le '_en' pour revenir à la version française
+      }
+
+      this.$router.push({ name: newRoute });
     },
     updateButtonStyles() {
       const overlays = document.querySelectorAll('.v-btn--variant-text .v-btn__overlay');
@@ -71,23 +124,15 @@ export default {
         overlay.style.background = 'rgba(200, 200, 200, 0.3)';
       });
     },
-    toggleMenu() {
-      const overlays = document.querySelectorAll('.v-btn--variant-text .v-btn__overlay');
-      overlays.forEach(overlay => {
-        overlay.style.background = 'rgba(200, 200, 200, 0.3)';
-      });
-      this.isMenuOpen = !this.isMenuOpen; // Toggle the visibility of the menu
-    },
   },
   mounted() {
-    window.addEventListener("scroll", this.handleScroll);
-    this.updateButtonStyles(); //Call to update styles
-  },
-  beforeDestroy() {
-    window.removeEventListener("scroll", this.handleScroll);
+    this.updateButtonTexts(this.isEnglish);
+    this.updateButtonStyles();
   },
 };
 </script>
+
+
 
 
 <style>
@@ -117,60 +162,33 @@ export default {
     top: 64px; /* Positioned just below the v-app-bar */
     right: 0;
     width: 100%;
-    height: 100%;
-    background-color: red;
+    height: calc(100vh - 64px);
+    background-color: #192636;
     z-index: 10;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 50px;
-    gap: 20px;
+    padding: 10px;
   }
   
+  /* Styling for the buttons */
   .short-menu-items .v-btn {
-    margin: 5px 0;
+    font-size: 20px;           /* Larger font size */
+    margin: 30px 0;            /* Add spacing between buttons */
     color: white;
+    border: none;              /* Remove border */
+    justify-content: center;   /* Center the text */
   }
 }
 
-.langue
-{
-  margin-left: auto;
-  border: none;
-}
-.langue-hidden
-{
-  display: flex;
-  justify-content: center;
-  align-items:center;
-  flex-direction: column;
-  position: fixed;
-  top : 10vh;
-  right:1%;
-  padding: auto;
-  background: #F5F5F5;
-  border-radius: 10px;
-  z-index: 1;
-  opacity: 0;
-}
-
-.btn-langue
-{
-  
-  border: none;
-  background: none;
-  font-size: 2vh;
-  cursor: pointer;
-}
-
-.langue-hidden form
-{
-  padding: 2vh 2vh 1vh 2vh;
+.overlay-active .v-btn__overlay {
+  background-color: rgba(200, 200, 200, 0.3);
 }
 
 
-.show-langue .langue-hidden 
-{
-  opacity: 1;
+.scrolled {
+  height: 48px; /* Réduire la hauteur de la barre */
+  transition: height 0.3s ease;
 }
+
 </style>

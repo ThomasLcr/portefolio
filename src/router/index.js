@@ -7,7 +7,19 @@
 // Composables
 import { createRouter, createWebHistory } from 'vue-router/auto'
 import { setupLayouts } from 'virtual:generated-layouts'
-import { routes } from 'vue-router/auto-routes'
+
+const routes = [
+  {
+    path: '/',
+    name: 'home',
+    component: () => import('../pages/index.vue'),
+  },
+  {
+    path: '/en',
+    name: 'home_en',
+    component: () => import('../pages/index_en.vue'),
+  },
+];
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
