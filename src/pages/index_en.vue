@@ -268,7 +268,7 @@
   import python from "../assets/python.png";
 
 
-  import CV from "../assets/CV_FR.pdf";
+  import CV from "../assets/CV_EN.pdf";
   import analyse from "../assets/etatsfi_analyse.png";
   import SpotTheSong from "../assets/SpotTheSong.png";
   import compile_arbre from "../assets/compile_arbre.png";
